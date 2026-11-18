@@ -1,5 +1,3 @@
-// Student: Maombi KAMANZI
-// Reg no: 152302019
 const String regNo = '152302019';
 final int d = int.parse(regNo[regNo.length - 1]);
 final int t = int.parse(regNo.substring(regNo.length - 2));
@@ -9,6 +7,7 @@ int countVowels(String text) {
   int count = 0;
   String lowerText = text.toLowerCase();
   int i = 0;
+
   while (i < lowerText.length) {
     if ('aeiou'.contains(lowerText[i])) {
       count++;
@@ -21,6 +20,7 @@ int countVowels(String text) {
 String initials(String fullName) {
   // by MK
   String cleaned = fullName.trim();
+
   if (cleaned.isEmpty) {
     return '';
   }
@@ -28,10 +28,12 @@ String initials(String fullName) {
   List<String> names = cleaned.split(RegExp(r'\s+'));
   String result = '';
   int i = 0;
+
   while (i < names.length) {
     result += '${names[i][0].toUpperCase()}.';
     i++;
   }
+
   return result;
 }
 
@@ -42,10 +44,12 @@ void drawTriangle(int height) {
   }
 
   int row = 1;
+
   while (row <= height) {
     String symbol = row.isOdd ? '*' : '#';
     String spaces = List.filled(height - row, ' ').join();
     String marks = List.filled(row, symbol).join();
+
     print('$spaces$marks');
     row++;
   }
@@ -71,6 +75,7 @@ String maskPhone(String phone) {
   if (phone.length != 10) {
     return 'INVALID';
   }
+
   return '${phone.substring(0, 3)}${List.filled(5, '*').join()}${phone.substring(8)}';
 }
 
@@ -88,21 +93,27 @@ void main() {
 
   print('\nPART C5');
   drawTriangle(d + 3);
+
   print('Height 0:');
   drawTriangle(0);
+
   print('Height -2:');
   drawTriangle(-2);
 
   print('\nPART D2');
   int i = 1;
   int totalFees = 0;
-  const String phone = '0788123456';
+  const String phone = '0788426434';
+
   while (i <= d + 3) {
     int amount = i * 4000 + t * 100;
     int fee = momoFee(amount);
+
     totalFees += fee;
+
     print('Receipt $i | $amount RWF | fee $fee RWF | to ${maskPhone(phone)}');
     i++;
   }
+
   print('Total fees: $totalFees RWF');
 }
