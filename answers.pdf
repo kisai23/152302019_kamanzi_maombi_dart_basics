@@ -1,0 +1,425 @@
+# DART BASICS ASSIGNMENT – ANSWERS
+
+**Student Name:** Maombi KAMANZI  
+**Registration Number:** 152302019  
+**D:** 9  
+**T:** 19  
+**Programming Language:** Dart
+
+---
+
+## PART A: BASIC DART CONCEPTS
+
+### A1. Output
+
+The output is:
+
+```text
+3.4
+3
+2
+3
+-3
+-17
+false
+true
+```
+
+**Explanation:** Dart distinguishes between normal division (`/`) and integer division (`~/`). Integer division removes the decimal part. Comparison and logical operators return Boolean values (`true` or `false`).
+
+### A2. Expressions
+
+Given:
+
+```dart
+int x = 9;
+int y = 19;
+```
+
+The results are:
+
+```text
+31
+false
+319
+```
+
+**Explanation:** The values of `x` and `y` are used in arithmetic, comparison, and string concatenation expressions. Integer division `19 ~/ 5` gives `3`.
+
+---
+
+## PART B: STRINGS AND FUNCTIONS
+
+### B1. String Operations
+
+Given:
+
+```dart
+String city = 'Kigali';
+```
+
+| Expression | Result |
+|---|---|
+| `city.length` | 6 |
+| `city[city.length - 1]` | i |
+| `city.substring(2, 4)` | ga |
+| `city.toUpperCase().indexOf('A')` | 1 |
+| `city.contains('k')` | false |
+| `'$city.length'` | Kigali.length |
+| `'${city.length}'` | 6 |
+| `city.toUpperCase(); print(city);` | Kigali |
+| `city.replaceAll('i', '!')` | K!gal! |
+| `'5' + 5.toString()` | 55 |
+| `int.parse('5') + 5` | 10 |
+
+**Important:** Dart does not support multiplying a String by an integer using `city * 2`. To repeat a string, use:
+
+```dart
+List.filled(2, city).join()
+```
+
+Result:
+
+```text
+KigaliKigali
+```
+
+### B2. Count Vowels
+
+The function `countVowels()` counts the vowels a, e, i, o, and u in a string.
+
+For:
+
+```dart
+countVowels('Maombi KAMANZI')
+```
+
+Output:
+
+```text
+Maombi KAMANZI has 5 vowels
+```
+
+### B3. Initials
+
+The function `initials()` returns the first letter of each name in uppercase, followed by a full stop.
+
+Examples:
+
+```text
+initials('Maombi KAMANZI') = M.K.
+initials(' ana uwase ') = A.U.
+initials(' ') = 
+```
+
+---
+
+## PART C: CONTROL FLOW
+
+### C1. Continue and Break
+
+The discussed loop trace produces:
+
+```text
+0
+1
+3
+```
+
+**Explanation:** `continue` skips the current iteration, while `break` terminates the loop.
+
+### C2. Switch Statement
+
+The discussed switch example produces:
+
+```text
+Early week
+```
+
+**Explanation:** In Dart, empty case labels can share the following case's statements. Non-empty cases do not automatically fall through.
+
+### C3. Null Safety and Do-While
+
+The discussed trace produces:
+
+```text
+50
+70
+10
+```
+
+**Explanation:** The null-coalescing operator `??` supplies a fallback value when a variable is null. The assignment operator `??=` assigns a value only when the variable is null. A `do-while` loop executes at least once.
+
+### C4. Loop and String Result
+
+Using:
+
+```dart
+D = 9
+```
+
+The discussed result is:
+
+```text
+OEO
+```
+
+Length:
+
+```text
+3
+```
+
+First character:
+
+```text
+O
+```
+
+### C5. Draw Triangle
+
+The height is:
+
+```dart
+D + 3 = 9 + 3 = 12
+```
+
+The function prints a right-aligned triangle. Odd rows use `*`, and even rows use `#`.
+
+Output:
+
+```text
+           *
+          ##
+         ***
+        ####
+       *****
+      ######
+     *******
+    ########
+   *********
+  ##########
+ ***********
+############
+```
+
+The function also handles zero and negative heights by printing nothing.
+
+---
+
+## PART D: FUNCTIONS AND CALCULATIONS
+
+### D1. Function Concepts
+
+The discussed answers are:
+
+| Expression | Result |
+|---|---:|
+| `print(count)` | 1 |
+| `print(v)` | 5 |
+| `addVat(1000)` | 1180 |
+| `addVat(999)` | 1178 |
+| `addVat(1000, rate: 0)` | 1000 |
+
+**Explanation:** Local variables have their own scope. Dart passes integer values to functions, and integer division truncates decimal results.
+
+### D2. MoMo Fees and Phone Number Masking
+
+Using:
+
+```dart
+D = 9
+T = 19
+```
+
+Amount formula:
+
+```dart
+amount = i * 4000 + T * 100;
+```
+
+The loop runs 12 times because `D + 3 = 12`.
+
+| Receipt | Amount (RWF) | Fee (RWF) |
+|---:|---:|---:|
+| 1 | 5,900 | 100 |
+| 2 | 9,900 | 100 |
+| 3 | 13,900 | 250 |
+| 4 | 17,900 | 250 |
+| 5 | 21,900 | 250 |
+| 6 | 25,900 | 250 |
+| 7 | 29,900 | 250 |
+| 8 | 33,900 | 250 |
+| 9 | 37,900 | 250 |
+| 10 | 41,900 | 250 |
+| 11 | 45,900 | 250 |
+| 12 | 49,900 | 250 |
+
+**Total fees: 2,700 RWF**
+
+Phone number:
+
+```text
+0788123456
+```
+
+Masked phone number:
+
+```text
+078*****56
+```
+
+---
+
+## PART E: DEBUGGING AND CODE CORRECTION
+
+### E1. Grade Function
+
+A grade function should check the highest mark ranges first.
+
+Correct logic:
+
+```dart
+if (mark >= 80) {
+  return 'A';
+} else if (mark >= 70) {
+  return 'B';
+} else if (mark >= 50) {
+  return 'C';
+} else {
+  return 'F';
+}
+```
+
+**Explanation:** Checking lower ranges first can cause higher marks to receive incorrect grades.
+
+### E2. Palindrome Function
+
+A palindrome reads the same forward and backward.
+
+A corrected function is:
+
+```dart
+bool isPalindrome(String word) {
+  int i = 0;
+
+  while (i < word.length ~/ 2) {
+    if (word[i] != word[word.length - 1 - i]) {
+      return false;
+    }
+    i++;
+  }
+
+  return true;
+}
+```
+
+**Explanation:** The correct last-character index is `word.length - 1`. The original incorrect index can cause a RangeError. This version is case-sensitive.
+
+---
+
+## PART F: MoMo USSD SIMULATOR
+
+The MoMo simulator validates PINs, checks balances, processes transactions, purchases airtime, and formats Rwandan francs.
+
+### Actual Program Output
+
+The following is the output obtained when running:
+
+```powershell
+dart run momo_sim.dart
+```
+
+```text
+Reg no: 152302019 | D = 9 | T = 19
+
+PIN tests
+12345: false
+77777: false
+4821: false
+48a21: false
+48219: true
+
+Starting balance: 29,500 RWF
+Failed: insufficient balance
+Failed: insufficient balance
+Failed: insufficient balance
+Airtime 1,000 RWF purchased. New balance: 28,500 RWF
+Failed: invalid amount
+Failed: insufficient balance
+Final balance: 28,500 RWF
+
+Extra tests
+0 RWF
+999 RWF
+1,000 RWF
+1,250,000 RWF
+-5,000 RWF
+true
+false
+```
+
+### Explanation
+
+- The starting balance is 29,500 RWF.
+- PIN `48219` is valid.
+- Invalid PINs are rejected.
+- Transactions are rejected when the available balance is insufficient.
+- Airtime purchase of 1,000 RWF succeeds.
+- The final balance is 28,500 RWF.
+
+---
+
+## PART G: DEBUGGING LOG AND REFLECTION
+
+### Problems Encountered
+
+During development, the Dart program produced compilation errors because Git merge conflict markers were left inside the source file.
+
+Examples of errors:
+
+```text
+Error: Expected a declaration, but got '<<'.
+Error: The '===' operator is not supported.
+Error: Expected a declaration, but got '>>>'.
+```
+
+### Causes
+
+The file contained Git conflict markers:
+
+```text
+<<<<<<< HEAD
+=======
+>>>>>>> branch-name
+```
+
+These markers are not valid Dart syntax. Duplicate declarations also caused errors.
+
+### Solutions
+
+1. Opened `dart_basics.dart`.
+2. Located the Git conflict markers.
+3. Selected the correct version of the code.
+4. Removed the conflict markers and duplicate declarations.
+5. Saved the file.
+6. Ran the program again:
+
+```powershell
+dart run dart_basics.dart
+```
+
+The program then executed successfully.
+
+### Reflection
+
+The most challenging part was resolving the Git merge conflict and removing duplicate declarations. I learned how to use Dart functions, loops, conditions, string operations, null safety, and debugging techniques. I also learned how to use Git and GitHub to manage and upload my project.
+
+---
+
+## CONCLUSION
+
+This assignment helped me develop practical skills in Dart programming, problem-solving, debugging, and version control. I successfully developed the Dart Basics program and the MoMo USSD simulator and uploaded my project files to GitHub.
+
+**Student:** Maombi KAMANZI  
+**Registration Number:** 152302019
